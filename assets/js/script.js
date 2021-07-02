@@ -34,10 +34,14 @@ function generatePassword () {
       if (special) {
         userChoice += special;
     };
+
+    if (upperConfirm === false && lowerConfirm === false && numbersConfirm === false &&
+      specialConfirm === false)
+      window.alert("Choose at least one character type.");
   }
   
     var pw = "";
-      for (let i = 0; i < pwlength; i++) {
+      for (let i = 0; i < pwLength; i++) {
         pw += userChoice[Math.floor(Math.random() * userChoice.length)]
       }
 
