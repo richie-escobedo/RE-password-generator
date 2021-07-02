@@ -9,8 +9,10 @@
 function generatePassword () {
 
     var pwLength = window.prompt("Enter between 8 - 128 characters for your password?");
+      if (pwLength < 8 || pwLength > 128 || isNaN(parseInt(pwLength))) {
+        window.alert("Stay between 8 and 128.");
+      } else {
 
-  
 
     // confirm password criteria 
     var upperConfirm = window.confirm("Include uppercase letters?");
@@ -32,7 +34,8 @@ function generatePassword () {
       if (special) {
         userChoice += special;
     };
-
+  }
+  
     var pw = "";
       for (let i = 0; i < pwlength; i++) {
         pw += userChoice[Math.floor(Math.random() * userChoice.length)]
