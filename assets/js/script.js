@@ -1,4 +1,9 @@
 // Assignment code here
+var upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+var lower = "abcdefghijklmnopqrstuvqxyz"; 
+var numbers = "0123456789";
+var special = "!#$%&'()*+,-./:;<=>?@_`{|}~";
+var userChoice = "";
 
 
 // Get references to the #generate element
