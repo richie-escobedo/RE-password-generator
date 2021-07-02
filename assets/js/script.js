@@ -1,10 +1,10 @@
 // Assignment code here
-    var userChoice = "";
     var upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     var lower = "abcdefghijklmnopqrstuvqxyz"; 
     var numbers = "0123456789";
     var special = "!#$%&'()*+,-./:;<=>?@_`{|}~";
     var userChoice = "";
+
 
 function generatePassword () {
 
@@ -16,22 +16,22 @@ function generatePassword () {
 
     // confirm password criteria 
     var upperConfirm = window.confirm("Include uppercase letters?");
-      if (upper) {
+      if (upperConfirm) {
         userChoice += upper;
     };
 
     var lowerConfirm = window.confirm("Include lowercase letters?");
-      if (lower) {
+      if (lowerConfirm) {
         userChoice += lower;
     };
 
     var numbersConfirm = window.confirm("Include numbers?");
-      if (numbers) {
+      if (numbersConfirm) {
         userChoice += numbers;
     };
 
     var specialConfirm = window.confirm("Include special characters?");
-      if (special) {
+      if (specialConfirm) {
         userChoice += special;
     };
 
@@ -42,10 +42,10 @@ function generatePassword () {
   
     var pw = "";
       for (let i = 0; i < pwLength; i++) {
-        pw += userChoice[Math.floor(Math.random() * userChoice.length)]
+        pw += userChoice.charAt(Math.floor(Math.random() * userChoice.length));
       }
 
-      return pw;
+      return pw
 }
 
     // Get references to the #generate element
