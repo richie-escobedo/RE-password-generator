@@ -1,17 +1,63 @@
 // Assignment code here
+    var upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    var lower = "abcdefghijklmnopqrstuvqxyz"; 
+    var numbers = "0123456789";
+    var special = "!#$%&'()*+,-./:;<=>?@_`{|}~";
+    var userChoice = "";
 
 
-// Get references to the #generate element
-var generateBtn = document.querySelector("#generate");
+function generatePassword () {
 
-// Write password to the #password input
-function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
+    var pwLength = window.prompt("Enter between 8 - 128 characters for your password?");
+      if (pwLength < 8 || pwLength > 128 || isNaN(parseInt(pwLength))) {
+        window.alert("Stay between 8 and 128.");
+      } else {
 
-  passwordText.value = password;
 
+    // confirm password criteria 
+    var upperConfirm = window.confirm("Include uppercase letters?");
+      if (upperConfirm) {
+        userChoice += upper;
+    };
+
+    var lowerConfirm = window.confirm("Include lowercase letters?");
+      if (lowerConfirm) {
+        userChoice += lower;
+    };
+
+    var numbersConfirm = window.confirm("Include numbers?");
+      if (numbersConfirm) {
+        userChoice += numbers;
+    };
+
+    var specialConfirm = window.confirm("Include special characters?");
+      if (specialConfirm) {
+        userChoice += special;
+    };
+
+    if (upperConfirm === false && lowerConfirm === false && numbersConfirm === false &&
+      specialConfirm === false)
+      window.alert("Choose at least one character type.");
+  }
+  
+    var pw = "";
+      for (let i = 0; i < pwLength; i++) {
+        pw += userChoice.charAt(Math.floor(Math.random() * userChoice.length));
+      }
+
+      return pw
 }
 
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
+    // Get references to the #generate element
+    var generateBtn = document.querySelector("#generate");
+
+    // Write password to the #password input
+    function writePassword() {
+      var password = generatePassword();
+      var passwordText = document.querySelector("#password");
+
+      passwordText.value = password;
+    }
+        // Add event listener to generate button
+        generateBtn.addEventListener("click", writePassword);
+  
